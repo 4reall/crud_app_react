@@ -4,5 +4,9 @@
     margin-bottom: 1rem;
     border: 2px solid;
     border-radius: 10px;
-    background: var(--post-btn-bg);
+    background: var(--form-bg);
+}
+.title {
+    margin-bottom: 0.75rem;
+    font-size:  var(--size-large);
 }

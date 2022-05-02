@@ -4,12 +4,18 @@ import Button from '../Button/Button';
 
 import styles from './post.module.css';
 
-const Post = ({ title, description, deletePostFromData }) => {
+const Post = ({ number, title, description, last, deletePostFromData }) => {
+	const postClasses = last
+		? `${styles.post} ${styles.postLast}`
+		: `${styles.post}
+		`;
 	return (
-		<div className={styles.post}>
+		<div className={postClasses}>
 			<div className={styles.postContent}>
-				<div className={styles.postTitle}>{title}</div>
-				<p className={styles.postDescr}>{description}</p>
+				<h2 className={styles.postTitle}>
+					{number}. {title}
+				</h2>
+				<p className={styles.postDescription}>{description}</p>
 			</div>
 			<Button handleClick={deletePostFromData}>delete</Button>
 		</div>

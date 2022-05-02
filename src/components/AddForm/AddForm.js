@@ -15,11 +15,10 @@ const AddForm = (props) => {
 	};
 
 	const disabled =
-		!getPostFromState().title && !getPostFromState().description;
+		!getPostFromState().title || !getPostFromState().description;
 
 	return (
-		<Form>
-			<h2 className={styles.title}>Add a new post</h2>
+		<Form title={'Add a new post'}>
 			<div className={styles.inputs}>
 				<Input
 					setState={setTitle}
