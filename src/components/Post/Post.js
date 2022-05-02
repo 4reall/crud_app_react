@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 
 import styles from './post.module.css';
 
-const Post = ({ number, title, description, last, deletePostFromData }) => {
+const Post = ({ number, title, description, last, actionWithData }) => {
 	const postClasses = last
 		? `${styles.post} ${styles.postLast}`
 		: `${styles.post}
@@ -17,7 +17,7 @@ const Post = ({ number, title, description, last, deletePostFromData }) => {
 				</h2>
 				<p className={styles.postDescription}>{description}</p>
 			</div>
-			<Button handleClick={deletePostFromData}>delete</Button>
+			<Button handleClick={actionWithData}>delete</Button>
 		</div>
 	);
 };
@@ -25,7 +25,7 @@ const Post = ({ number, title, description, last, deletePostFromData }) => {
 Post.propTypes = {
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
-	deletePostFromData: PropTypes.func.isRequired,
+	actionWithData: PropTypes.func.isRequired,
 };
 
 export default Post;
