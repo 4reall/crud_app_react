@@ -3,6 +3,7 @@ import { useState } from 'react';
 export const useFormHandler = (initial) => {
 	const [title, setTitle] = useState(initial);
 	const [description, setDescription] = useState(initial);
+	const [option, setOption] = useState(initial);
 	const getPostFromState = () => {
 		return {
 			title,
@@ -15,5 +16,7 @@ export const useFormHandler = (initial) => {
 		getPostFromState,
 		setTitle,
 		setDescription,
+		option,
+		setOption,
 	};
 };

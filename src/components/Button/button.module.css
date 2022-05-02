@@ -1,18 +1,14 @@
-:root {
-    --btn-w: 6em;
-    --btn-h: 2em;
-    --btn-border-w: 1em
-}
 .button {
     width: var(--btn-w);
     height: var(--btn-h);
     position: relative;
     outline: none;
     border: none;
-    border-radius: 5px;
-    font-size: clamp(0.75em, calc(1vw + 0.5rem), 1.5em);
+    border-radius: 0.5em;
+    font-size: clamp(0.75rem, calc(1vw + 0.5rem), 2rem);
     color: white;
-    background: linear-gradient(36deg, rgba(73,77,166,1) 0%, rgba(222,0,255,1) 100%);
+    /*background:#F719FA;*/
+    background: var(--main-bg);
     text-transform: uppercase;
     transition: all 0.3s;
 }
@@ -24,27 +20,27 @@
 .button:hover {
     transform: translateY(-0.3em);
 }
-.button:before{
-    content: '';
-    display: block;
-    position: absolute;
-    left: -0.1em;
-    top: -0.1em;
-    border-width: var(--btn-border-w) var(--btn-border-w) 0 0;
-    border-color: var(--post-btn-bg) transparent;
-    border-style: solid;
-}
-.button:after{
-    content: '';
-    display: block;
-    position: absolute;
-    left: calc(var(--btn-w) - var(--btn-border-w) + 0.1em);
-    top: calc(var(--btn-h) - var(--btn-border-w) + 0.1em);
-    border-width: var(--btn-border-w) var(--btn-border-w) 0 0;
-    border-color: var(--post-btn-bg) transparent;
-    border-style: solid;
-    transform: rotate(180deg);
-}
+/*.button:before{*/
+/*    content: '';*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    left: -0.1em;*/
+/*    top: -0.1em;*/
+/*    border-width: var(--btn-border-w) var(--btn-border-w) 0 0;*/
+/*    border-color: var(--post-btn-bg) transparent;*/
+/*    border-style: solid;*/
+/*}*/
+/*.button:after{*/
+/*    content: '';*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    left: calc(var(--btn-w) - var(--btn-border-w) + 0.1em);*/
+/*    top: calc(var(--btn-h) - var(--btn-border-w) + 0.1em);*/
+/*    border-width: var(--btn-border-w) var(--btn-border-w) 0 0;*/
+/*    border-color: var(--post-btn-bg) transparent;*/
+/*    border-style: solid;*/
+/*    transform: rotate(180deg);*/
+/*}*/
 
 
 @keyframes shaking {
