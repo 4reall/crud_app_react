@@ -4,7 +4,9 @@ import styles from './input.module.css';
 
 const Input = ({ setState, ...props }) => {
 	const inputHandler = (e) => setState(e.target.value);
-	return <input {...props} onInput={inputHandler} className={styles.input} />;
+	return (
+		<input {...props} onChange={inputHandler} className={styles.input} />
+	);
 };
 
 Input.propTypes = {

@@ -21,6 +21,7 @@ const postDB = [
 
 export const useData = (initial = postDB) => {
 	const [data, setData] = useState(initial);
+	const [option, setOption] = useState('');
 
 	const addData = (newData) => {
 		setData((oldData) => [...oldData, newData]);
@@ -29,8 +30,9 @@ export const useData = (initial = postDB) => {
 		setData(data.filter((item) => item.id !== id));
 	};
 	const sortData = (option) => {
+		if (option === '') return;
 		setData([...data].sort((a, b) => a[option].localeCompare(b[option])));
 	};
 
-	return { data, addData, deleteData, sortData };
+	return { data, addData, deleteData, sortData, option, setOption };
 };

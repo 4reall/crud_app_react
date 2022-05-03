@@ -5,8 +5,10 @@ import Post from '../Post/Post';
 
 import styles from './postList.module.css';
 
-const PostList = ({ postList, actionWithData }) => {
-	useEffect(() => {}, postList);
+const PostList = ({ postList, actionWithData, option }) => {
+	// useEffect(() => {
+	// 	actionWithData.sortData(option);
+	// }, []);
 
 	const notEmptyList = postList.map((post, index) => (
 		<li key={post.id}>
