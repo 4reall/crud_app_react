@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useFormHandler } from '../../hooks/useFormHandler';
-
 import styles from './select.module.css';
 
 const Select = ({ options, option, actionWithData }) => {

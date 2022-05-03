@@ -11,6 +11,7 @@
     background: var(--main-bg);
     text-transform: uppercase;
     transition: all 0.3s;
+    grid-column: span 6;
 }
 .buttonShake {
     animation: shaking 1s ease-in-out;

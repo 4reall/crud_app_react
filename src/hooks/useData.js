@@ -33,6 +33,18 @@ export const useData = (initial = postDB) => {
 		if (option === '') return;
 		setData([...data].sort((a, b) => a[option].localeCompare(b[option])));
 	};
+	const searchData = (query) => {
+		const regExp = new RegExp(`${query}`, 'gmi');
+		setData(data.filter((item) => regExp.test(item.title)));
+	};
 
-	return { data, addData, deleteData, sortData, option, setOption };
+	return {
+		data,
+		addData,
+		deleteData,
+		sortData,
+		searchData,
+		option,
+		setOption,
+	};
 };

@@ -1,6 +1,8 @@
 .form {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(6,1fr);
+    align-items: center;
+    justify-items: end;
     column-gap: 0.5em;
     row-gap: 0.75em;
     min-height: 5rem;
@@ -12,22 +14,11 @@
 }
 .title {
     grid-column: -1/1 ;
+    justify-self: start;
     font-size:  var(--size-large);
 }
-.button {
-    grid-column: 2;
+.form button {
     margin-top: 0.5em;
-    display: flex;
-    justify-content: end;
-}
-.select {
-    grid-column: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.select div {
-    width: 50%;
 }
 
 @media screen and (max-width: 35em) {

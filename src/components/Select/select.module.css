@@ -1,7 +1,5 @@
 .select {
-    display: flex;
-    flex-direction: column;
-    width: 6em;
+    grid-column: span 3;
 }
 .select select {
     border-radius: 0.5em;
