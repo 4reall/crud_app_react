@@ -9,6 +9,11 @@ const Form = (props) => {
 	const { handleInput, title, setTitle, description, setDescription } =
 		useFormHandler('');
 
+	const handleClick = () => {
+		props.actionWithData.sortData(props.option);
+		handleInput(props.actionWithData.addData);
+	};
+
 	const disabled = !title || !description;
 
 	const hasSelect = props.children
@@ -33,12 +38,13 @@ const Form = (props) => {
 			<div className={hasSelect}>
 				{props.children}
 				<Button
-					handleClick={() =>
-						handleInput(props.actionWithData.addData)
-					}
+					// handleClick={() =>
+					// 	handleInput(props.actionWithData.addData)
+					// }
+					handleClick={handleClick}
 					disabled={disabled}
 				>
-					add
+					{props.action}
 				</Button>
 			</div>
 		</form>

@@ -9,7 +9,7 @@ const AddForm = (props) => {
 	const { getPostFromState, setTitle, setDescription } = useFormHandler('');
 
 	const addPostToData = () => {
-		props.addPostToData(getPostFromState());
+		// props.addPostToData(getPostFromState());
 		setTitle('');
 		setDescription('');
 	};

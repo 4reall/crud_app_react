@@ -5,8 +5,11 @@ import { useFormHandler } from '../../hooks/useFormHandler';
 
 import styles from './select.module.css';
 
-const Select = ({ options, actionWithData }) => {
-	const { option, handleSelect } = useFormHandler();
+const Select = ({ options, option, actionWithData }) => {
+	const handleSelect = (e) => {
+		actionWithData.setOption(e.target.value);
+		actionWithData.sortData(e.target.value);
+	};
 
 	const view = options.map(({ value, name }, index) => {
 		return (
