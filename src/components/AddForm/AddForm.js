@@ -1,41 +1,50 @@
-import Button from '../Button/Button';
+import React, { useEffect, useState } from 'react';
+
+import styles from '../Form/form.module.css';
 import Input from '../Input/Input';
+import Button from '../Button/Button';
 import Form from '../Form/Form';
-import { useFormHandler } from '../../hooks/useFormHandler';
 
-import styles from './addForm.module.css';
+const AddForm = ({ actionWithData, option }) => {
+	const [title, setTitle] = useState('');
+	const [description, setDescription] = useState('');
+	const [flag, setFlag] = useState(false);
 
-const AddForm = (props) => {
-	const { getPostFromState, setTitle, setDescription } = useFormHandler('');
+	useEffect(() => {
+		actionWithData.sortData(option);
+		setFlag(false);
+	}, [flag]);
 
-	const addPostToData = () => {
-		// props.addPostToData(getPostFromState());
+	const addNewPost = () => {
+		actionWithData.addData({
+			title,
+			description,
+			id: Date.now(),
+		});
 		setTitle('');
 		setDescription('');
+		setFlag(true);
 	};
 
-	const disabled =
-		!getPostFromState().title || !getPostFromState().description;
+	const disabled = !title || !description;
 
 	return (
 		<Form title={'Add a new post'}>
-			<div className={styles.inputs}>
-				<Input
-					setState={setTitle}
-					type={'text'}
-					placeholder={'Title'}
-					value={getPostFromState().title}
-				/>
-				<Input
-					setState={setDescription}
-					type={'text'}
-					placeholder={'Description'}
-					value={getPostFromState().description}
-				/>
-				<Button handleClick={addPostToData} disabled={disabled}>
-					add
-				</Button>
-			</div>
+			<Input
+				setState={setTitle}
+				type={'text'}
+				placeholder={'Title'}
+				value={title}
+			/>
+			<Input
+				setState={setDescription}
+				type={'text'}
+				placeholder={'Description'}
+				value={description}
+			/>
+			<Button handleClick={addNewPost} disabled={disabled}>
+				add
+			</Button>
 		</Form>
 	);
 };
