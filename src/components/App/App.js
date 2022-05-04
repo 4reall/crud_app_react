@@ -3,41 +3,35 @@ import AddForm from '../AddForm/AddForm';
 import { useData } from '../../hooks/useData';
 import './app.css';
 import SearchForm from '../SearchForm/SearchForm';
-import Form from '../Form/Form';
-import Select from '../Select/Select';
-import Input from '../Input/Input';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 function App() {
 	const { data, addData, deleteData, sortData, searchData } = useData();
-	const [option, setOption] = useState('');
+	const [filter, setFilter] = useState({ sortOption: '', searchQuery: '' });
+
+	const sortedPosts = useMemo(() => {
+		return sortData(data, filter.sortOption);
+	}, [filter.sortOption, data]);
+
+	const searchedAndSortedPosts = useMemo(() => {
+		return searchData(sortedPosts, filter.searchQuery);
+	}, [filter.searchQuery, sortedPosts]);
 
 	return (
 		<div className="app">
-			<AddForm
-				actionWithData={{ addData, sortData }}
-				option={option}
-				action={'add'}
+			<AddForm actionWithData={{ addData }} option={filter.sortOption} />
+			<SearchForm
+				actionWithData={{ sortData, searchData }}
+				setFilter={setFilter}
+				filter={filter}
+				options={[
+					{ value: 'title', name: 'Title' },
+					{ value: 'description', name: 'description' },
+				]}
 			/>
-			<Form title={'Search'}>
-				<Input
-					setState={setOption}
-					placeholder={'Search'}
-					actionWithData={{ searchData }}
-				/>
-				<Select
-					actionWithData={{ sortData, setOption }}
-					option={option}
-					options={[
-						{ value: 'title', name: 'Title' },
-						{ value: 'description', name: 'description' },
-					]}
-				/>
-			</Form>
 			<PostList
-				postList={data}
-				actionWithData={{ deleteData, sortData }}
-				option={option}
+				postList={searchedAndSortedPosts}
+				actionWithData={{ deleteData }}
 			/>
 		</div>
 	);

@@ -4,11 +4,7 @@ import Post from '../Post/Post';
 
 import styles from './postList.module.css';
 
-const PostList = ({ postList, actionWithData, option }) => {
-	// useEffect(() => {
-	// 	actionWithData.sortData(option);
-	// }, []);
-
+const PostList = ({ postList, actionWithData }) => {
 	const notEmptyList = postList.map((post, index) => (
 		<li key={post.id}>
 			<Post
