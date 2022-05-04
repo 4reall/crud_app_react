@@ -21,21 +21,23 @@ const postDB = [
 
 export const useData = (initial = postDB) => {
 	const [data, setData] = useState(initial);
-	const [option, setOption] = useState('');
 
 	const addData = (newData) => {
 		setData((oldData) => [...oldData, newData]);
 	};
+
 	const deleteData = (id) => {
 		setData(data.filter((item) => item.id !== id));
 	};
-	const sortData = (option) => {
-		if (option === '') return;
-		setData([...data].sort((a, b) => a[option].localeCompare(b[option])));
+
+	const sortData = (data, option) => {
+		if (option === '') return data;
+		return [...data].sort((a, b) => a[option].localeCompare(b[option]));
 	};
-	const searchData = (query) => {
+
+	const searchData = (data, query) => {
 		const regExp = new RegExp(`${query}`, 'gmi');
-		setData(data.filter((item) => regExp.test(item.title)));
+		return data.filter((item) => regExp.test(item.title));
 	};
 
 	return {
@@ -44,7 +46,5 @@ export const useData = (initial = postDB) => {
 		deleteData,
 		sortData,
 		searchData,
-		option,
-		setOption,
 	};
 };

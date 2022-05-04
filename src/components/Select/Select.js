@@ -3,13 +3,8 @@ import PropTypes from 'prop-types';
 
 import styles from './select.module.css';
 
-const Select = ({ options, option, actionWithData }) => {
-	const handleSelect = (e) => {
-		actionWithData.setOption(e.target.value);
-		actionWithData.sortData(e.target.value);
-	};
-
-	const view = options.map(({ value, name }, index) => {
+const Select = ({ options, value, onChange }) => {
+	const view = options.map(({ value, name }) => {
 		return (
 			<option key={value} value={value}>
 				{name}
@@ -20,8 +15,8 @@ const Select = ({ options, option, actionWithData }) => {
 	return (
 		<div className={styles.select}>
 			<select
-				onChange={(e) => handleSelect(e, actionWithData.sortData)}
-				value={option}
+				onChange={(e) => onChange(e.target.value)}
+				value={value}
 				name="select"
 			>
 				<option disabled value="">
@@ -33,6 +28,10 @@ const Select = ({ options, option, actionWithData }) => {
 	);
 };
 
-Select.propTypes = {};
+Select.propTypes = {
+	options: PropTypes.array.isRequired,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+};
 
 export default Select;

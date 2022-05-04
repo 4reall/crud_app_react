@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import styles from '../Form/form.module.css';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 
-const AddForm = ({ actionWithData, option }) => {
+const AddForm = ({ actionWithData }) => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
-	const [flag, setFlag] = useState(false);
-
-	useEffect(() => {
-		actionWithData.sortData(option);
-		setFlag(false);
-	}, [flag]);
 
 	const addNewPost = () => {
 		actionWithData.addData({
@@ -23,7 +16,6 @@ const AddForm = ({ actionWithData, option }) => {
 		});
 		setTitle('');
 		setDescription('');
-		setFlag(true);
 	};
 
 	const disabled = !title || !description;
@@ -31,13 +23,13 @@ const AddForm = ({ actionWithData, option }) => {
 	return (
 		<Form title={'Add a new post'}>
 			<Input
-				setState={setTitle}
+				onChange={setTitle}
 				type={'text'}
 				placeholder={'Title'}
 				value={title}
 			/>
 			<Input
-				setState={setDescription}
+				onChange={setDescription}
 				type={'text'}
 				placeholder={'Description'}
 				value={description}

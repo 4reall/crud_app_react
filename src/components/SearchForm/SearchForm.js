@@ -3,36 +3,36 @@ import PropTypes from 'prop-types';
 import Form from '../Form/Form';
 import Select from '../Select/Select';
 
-import styles from './searchForm.css';
 import Input from '../Input/Input';
-import Button from '../Button/Button';
 
-const SearchForm = (props) => {
+const SearchForm = ({ actionWithData, filter, setFilter, options }) => {
 	return (
-		<Form>
-			<div className={styles.search}>
-				<Input
-					// setState={setTitle}
-					type={'text'}
-					placeholder={'Title'}
-					// value={getPostFromState().title}
-				/>
-				<Input
-					// setState={setDescription}
-					type={'text'}
-					placeholder={'Description'}
-					// value={getPostFromState().description}
-				/>
-				{/*<Button handleClick={addPostToData} disabled={disabled}>*/}
-				{/*    add*/}
-				{/*</Button>*/}
-				<Button>search</Button>
-			</div>
-			<Select />
+		<Form title={'Search'}>
+			<Input
+				type={'text'}
+				placeholder={'Search'}
+				onChange={(searchQuery) =>
+					setFilter({ ...filter, searchQuery: searchQuery })
+				}
+				value={filter.searchQuery}
+				actionWithData={actionWithData.searchData}
+			/>
+			<Select
+				onChange={(selectedSort) =>
+					setFilter({ ...filter, sortOption: selectedSort })
+				}
+				value={filter.sortOption}
+				options={options}
+			/>
 		</Form>
 	);
 };
 
-SearchForm.propTypes = {};
+SearchForm.propTypes = {
+	actionWithData: PropTypes.object.isRequired,
+	filter: PropTypes.object.isRequired,
+	setFilter: PropTypes.func.isRequired,
+	options: PropTypes.array.isRequired,
+};
 
 export default SearchForm;
