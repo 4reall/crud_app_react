@@ -7,11 +7,9 @@
     border-radius: 0.5em;
     font-size: clamp(0.75rem, calc(1vw + 0.5rem), 2rem);
     color: white;
-    /*background:#F719FA;*/
     background: var(--main-bg);
     text-transform: uppercase;
     transition: all 0.3s;
-    grid-column: span 6;
 }
 .buttonShake {
     animation: shaking 1s ease-in-out;

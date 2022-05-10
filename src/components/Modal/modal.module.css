@@ -1,0 +1,42 @@
+.modal {
+    /*display: none;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*visibility: hidden;*/
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,.5);
+}
+.content {
+    width: min(40rem, 60%);
+    margin: 0 auto;
+}
+.content:after {
+    content: '';
+    width: 0.5rem;
+    height: 0.2rem;
+    position: absolute;
+    transform: rotate(-45deg);
+    background: #000;
+}
+.content:after {
+    content: '';
+    width: 0.5rem;
+    height: 0.2rem;
+    position: absolute;
+    transform: rotate(45deg);
+    background: #000;
+
+
+}
+.modalActive {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*visibility: visible;*/
+}

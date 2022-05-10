@@ -21,8 +21,11 @@ const postDB = [
 
 export const useData = (initial = postDB) => {
 	const [data, setData] = useState(initial);
+	const [filter, setFilter] = useState({ sortOption: '', searchQuery: '' });
+	const [modal, setModal] = useState(false);
 
 	const addData = (newData) => {
+		setModal(false);
 		setData((oldData) => [...oldData, newData]);
 	};
 
@@ -46,5 +49,9 @@ export const useData = (initial = postDB) => {
 		deleteData,
 		sortData,
 		searchData,
+		filter,
+		setFilter,
+		modal,
+		setModal,
 	};
 };

@@ -4,13 +4,9 @@ import Button from '../Button/Button';
 
 import styles from './post.module.css';
 
-const Post = ({ number, title, description, last, actionWithData }) => {
-	const postClasses = last
-		? `${styles.post} ${styles.postLast}`
-		: `${styles.post}
-		`;
+const Post = ({ number, title, description, actionWithData }) => {
 	return (
-		<div className={postClasses}>
+		<div className={styles.post}>
 			<div className={styles.postContent}>
 				<h2 className={styles.postTitle}>
 					{number}. {title}

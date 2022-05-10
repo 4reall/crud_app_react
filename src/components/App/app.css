@@ -1,6 +1,6 @@
 .app {
     height: 100%;
     width: min(60rem, 90%);
-    padding: 3rem 0;
+    padding: 2rem 0;
     margin-inline: auto;
 }

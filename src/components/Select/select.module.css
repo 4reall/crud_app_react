@@ -1,6 +1,3 @@
-.select {
-    grid-column: span 3;
-}
 .select select {
     border-radius: 0.5em;
     padding: 0.2em;

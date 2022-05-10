@@ -1,21 +1,2 @@
-.inputs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.inputs input {
-    width: 33.3%;
-}
 
-@media screen and (max-width: 35em) {
-    .inputs {
-        flex-direction: column;
-    }
-    .inputs input {
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-    .inputs button {
-        margin-top: 0.5rem;
-    }
-}
+
