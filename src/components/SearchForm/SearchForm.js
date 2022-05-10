@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Form from '../Form/Form';
 import Select from '../Select/Select';
-
 import Input from '../Input/Input';
+
+import styles from './searchForm.module.css';
 
 const SearchForm = ({ actionWithData, filter, setFilter, options }) => {
 	return (

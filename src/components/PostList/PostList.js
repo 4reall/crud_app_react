@@ -1,28 +1,40 @@
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
 
 import Post from '../Post/Post';
-
 import styles from './postList.module.css';
 
 const PostList = ({ postList, actionWithData }) => {
-	const notEmptyList = postList.map((post, index) => (
-		<li key={post.id}>
-			<Post
-				last={index + 1 === postList.length}
-				number={index + 1}
-				title={post.title}
-				description={post.description}
-				actionWithData={() => actionWithData.deleteData(post.id)}
-			/>
-		</li>
+	const list = postList.map((post, index) => (
+		<CSSTransition key={post.id} timeout={500} classNames="post">
+			<li>
+				<Post
+					number={index + 1}
+					title={post.title}
+					description={post.description}
+					actionWithData={() => actionWithData.deleteData(post.id)}
+				/>
+			</li>
+		</CSSTransition>
 	));
 
-	const emptyList = <h2 className={styles.title}>There is no post here</h2>;
+	const view =
+		postList.length !== 0 ? (
+			// <TransitionGroup>{list}</TransitionGroup>
+			list
+		) : (
+			<CSSTransition timeout={500} classNames="post">
+				<li className={styles.title}>There is no post here</li>
+			</CSSTransition>
+		);
 
-	const view = postList.length !== 0 ? notEmptyList : emptyList;
-
-	return <ul className={styles.list}>{view}</ul>;
+	return (
+		<ul className={styles.list}>
+			<TransitionGroup>{view}</TransitionGroup>
+		</ul>
+	);
 };
+
 PostList.propTypes = {
 	postList: PropTypes.array.isRequired,
 	actionWithData: PropTypes.object.isRequired,

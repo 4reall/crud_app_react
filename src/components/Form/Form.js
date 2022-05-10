@@ -4,10 +4,12 @@ import styles from '../Form/form.module.css';
 
 const Form = ({ children, title }) => {
 	return (
-		<form className={styles.form}>
+		<div className={styles.container}>
 			<h2 className={styles.title}>{title}</h2>
-			{children}
-		</form>
+			<form onSubmit={(e) => e.preventDefault()} className={styles.form}>
+				{children}
+			</form>
+		</div>
 	);
 };
 

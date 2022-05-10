@@ -1,13 +1,38 @@
+import { useEffect, useMemo, useState } from 'react';
+import { useData } from '../../hooks/useData';
+
 import PostList from '../PostList/PostList';
 import AddForm from '../AddForm/AddForm';
-import { useData } from '../../hooks/useData';
-import './app.css';
 import SearchForm from '../SearchForm/SearchForm';
-import { useMemo, useState } from 'react';
+import Modal from '../Modal/Modal';
+import Form from '../Form/Form';
+import Button from '../Button/Button';
 
-function App() {
-	const { data, addData, deleteData, sortData, searchData } = useData();
-	const [filter, setFilter] = useState({ sortOption: '', searchQuery: '' });
+import './app.css';
+import { CSSTransition } from 'react-transition-group';
+
+const App = () => {
+	const {
+		data,
+		addData,
+		deleteData,
+		sortData,
+		searchData,
+		filter,
+		setFilter,
+		modal,
+		setModal,
+	} = useData();
+
+	useEffect(() => {
+		const handler = (e) => {
+			if (e.key === 'Enter') setModal(true);
+		};
+
+		window.addEventListener('keydown', handler);
+
+		return () => window.removeEventListener('keydown', handler);
+	}, []);
 
 	const sortedPosts = useMemo(() => {
 		return sortData(data, filter.sortOption);
@@ -19,7 +44,13 @@ function App() {
 
 	return (
 		<div className="app">
-			<AddForm actionWithData={{ addData }} option={filter.sortOption} />
+			\\todo: - add button for open modal on mobile
+			<Modal active={modal} setActive={setModal}>
+				<AddForm
+					actionWithData={{ addData }}
+					option={filter.sortOption}
+				/>
+			</Modal>
 			<SearchForm
 				actionWithData={{ sortData, searchData }}
 				setFilter={setFilter}
@@ -35,6 +66,6 @@ function App() {
 			/>
 		</div>
 	);
-}
+};
 
 export default App;
