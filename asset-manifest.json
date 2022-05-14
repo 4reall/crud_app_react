@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/crud_react_app_study/static/css/main.f477cf07.css",
+    "main.js": "/crud_react_app_study/static/js/main.4c420fbb.js",
+    "static/media/circle-plus-solid.svg": "/crud_react_app_study/static/media/circle-plus-solid.1071c7a1ec2124d3c63cdaef3cc30507.svg",
+    "index.html": "/crud_react_app_study/index.html",
+    "main.f477cf07.css.map": "/crud_react_app_study/static/css/main.f477cf07.css.map",
+    "main.4c420fbb.js.map": "/crud_react_app_study/static/js/main.4c420fbb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f477cf07.css",
+    "static/js/main.4c420fbb.js"
+  ]
+}
