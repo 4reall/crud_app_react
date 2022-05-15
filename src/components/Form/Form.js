@@ -1,16 +1,27 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from '../Form/form.module.css';
+import Container from '../Container/Container';
 
-const Form = ({ children, title }) => {
+const Form = ({ children, title, isOneCol }) => {
+	const onSubmit = (e) => {
+		e.preventDefault();
+	};
+
 	return (
-		<div className={styles.container}>
+		<Container>
 			<h2 className={styles.title}>{title}</h2>
-			<form onSubmit={(e) => e.preventDefault()} className={styles.form}>
+			<form onSubmit={onSubmit} className={styles.form}>
 				{children}
 			</form>
-		</div>
+		</Container>
 	);
+};
+
+Form.propTypes = {
+	title: PropTypes.string,
+	colNumberClass: PropTypes.bool,
 };
 
 export default Form;

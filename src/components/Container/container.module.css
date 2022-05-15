@@ -1,0 +1,11 @@
+.container {
+    min-height: 5rem;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 2px solid;
+    border-radius: 10px;
+    background: var(--form-bg);
+}
+.container:last-child {
+    margin-bottom: 0;
+}

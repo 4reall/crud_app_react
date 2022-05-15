@@ -11,7 +11,7 @@ const PostList = ({ postList, actionWithData }) => {
 				<Post
 					number={index + 1}
 					title={post.title}
-					description={post.description}
+					body={post.body}
 					actionWithData={() => actionWithData.deleteData(post.id)}
 				/>
 			</li>

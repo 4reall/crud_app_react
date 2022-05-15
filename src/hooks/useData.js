@@ -1,26 +1,7 @@
 import { useState } from 'react';
 
-const postDB = [
-	{
-		title: 'JavaScript',
-		description:
-			'There is description for JSThere is description for JSThere is description for JSThere is description for JSThere is description for JSThere is description for JSThere is description for JSThere is description for JSThere is description for JS',
-		id: '1',
-	},
-	{
-		title: 'Python',
-		description: 'BThere is description for Python',
-		id: '2',
-	},
-	{
-		title: 'C#',
-		description: 'AThere is description for C',
-		id: '3',
-	},
-];
-
-export const useData = (initial = postDB) => {
-	const [data, setData] = useState(initial);
+export const useData = () => {
+	const [data, setData] = useState([]);
 	const [filter, setFilter] = useState({ sortOption: '', searchQuery: '' });
 	const [modal, setModal] = useState(false);
 
@@ -39,12 +20,15 @@ export const useData = (initial = postDB) => {
 	};
 
 	const searchData = (data, query) => {
-		const regExp = new RegExp(`${query}`, 'gmi');
-		return data.filter((item) => regExp.test(item.title));
+		if (query === '') return data;
+		return data.filter((item) =>
+			item.title.toLowerCase().includes(query.toLowerCase())
+		);
 	};
 
 	return {
 		data,
+		setData,
 		addData,
 		deleteData,
 		sortData,
