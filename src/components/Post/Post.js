@@ -4,14 +4,14 @@ import Button from '../Button/Button';
 
 import styles from './post.module.css';
 
-const Post = ({ number, title, description, actionWithData }) => {
+const Post = ({ number, title, body, actionWithData }) => {
 	return (
 		<div className={styles.post}>
 			<div className={styles.postContent}>
 				<h2 className={styles.postTitle}>
 					{number}. {title}
 				</h2>
-				<p className={styles.postDescription}>{description}</p>
+				<p className={styles.postDescription}>{body}</p>
 			</div>
 			<Button handleClick={actionWithData}>delete</Button>
 		</div>
@@ -19,8 +19,9 @@ const Post = ({ number, title, description, actionWithData }) => {
 };
 
 Post.propTypes = {
+	number: PropTypes.number.isRequired,
 	title: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
+	body: PropTypes.string.isRequired,
 	actionWithData: PropTypes.func.isRequired,
 };
 

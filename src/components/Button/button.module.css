@@ -19,6 +19,32 @@
 .button:hover {
     transform: translateY(-0.3em);
 }
+.modalButton {
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    bottom: 7%;
+    right: 5%;
+    z-index: 1000;
+    opacity: .7;
+}
+.modalButton img {
+    /*position: absolute;*/
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.modalButton:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    background:#F719FA;
+}
 /*.button:before{*/
 /*    content: '';*/
 /*    display: block;*/

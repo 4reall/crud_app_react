@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import Form from '../Form/Form';
 
+import Form from '../Form/Form';
 import styles from './addForm.module.css';
 
 const AddForm = ({ actionWithData }) => {
@@ -41,6 +42,10 @@ const AddForm = ({ actionWithData }) => {
 			</Button>
 		</Form>
 	);
+};
+
+AddForm.propTypes = {
+	actionWithData: PropTypes.object.isRequired,
 };
 
 export default AddForm;
