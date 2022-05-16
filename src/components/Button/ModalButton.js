@@ -1,5 +1,5 @@
 import React from 'react';
-import circlePlus from '../../assets/circle-plus-solid.svg';
+import circlePlus from '../../assets/icons/circle-plus-solid.svg';
 import styles from './button.module.css';
 function ModalButton({ onClick }) {
 	return (

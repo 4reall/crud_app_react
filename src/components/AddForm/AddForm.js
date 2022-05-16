@@ -9,19 +9,19 @@ import styles from './addForm.module.css';
 
 const AddForm = ({ actionWithData }) => {
 	const [title, setTitle] = useState('');
-	const [description, setDescription] = useState('');
+	const [body, setBody] = useState('');
 
 	const addNewPost = () => {
 		actionWithData.addData({
 			title,
-			description,
+			body,
 			id: Date.now(),
 		});
 		setTitle('');
-		setDescription('');
+		setBody('');
 	};
 
-	const disabled = !title || !description;
+	const disabled = !title || !body;
 
 	return (
 		<Form title={'Add a new post'}>
@@ -32,10 +32,10 @@ const AddForm = ({ actionWithData }) => {
 				value={title}
 			/>
 			<Input
-				onChange={setDescription}
+				onChange={setBody}
 				type={'text'}
 				placeholder={'Description'}
-				value={description}
+				value={body}
 			/>
 			<Button handleClick={addNewPost} disabled={disabled}>
 				add

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './error.module.css';
-import errorSvg from '../../assets/triangle-exclamation-solid.svg';
+import errorSvg from '../../assets/icons/triangle-exclamation-solid.svg';
 import PropTypes from 'prop-types';
 
 const Error = ({ errorMessage }) => {

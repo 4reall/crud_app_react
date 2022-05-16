@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useMemo } from 'react';
 
-export const useData = () => {
+const useData = () => {
 	const [data, setData] = useState([]);
 	const [filter, setFilter] = useState({ sortOption: '', searchQuery: '' });
 	const [modal, setModal] = useState(false);
@@ -26,6 +27,14 @@ export const useData = () => {
 		);
 	};
 
+	const sortedPostsMemo = useMemo(() => {
+		return sortData(data, filter.sortOption);
+	}, [filter.sortOption, data]);
+
+	const searchedAndSortedPostsMemo = useMemo(() => {
+		return searchData(sortedPostsMemo, filter.searchQuery);
+	}, [filter.searchQuery, sortedPostsMemo]);
+
 	return {
 		data,
 		setData,
@@ -33,9 +42,12 @@ export const useData = () => {
 		deleteData,
 		sortData,
 		searchData,
+		searchedAndSortedPostsMemo,
 		filter,
 		setFilter,
 		modal,
 		setModal,
 	};
 };
+
+export default useData;

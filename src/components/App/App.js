@@ -1,61 +1,46 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useData } from '../../hooks/useData';
-import { CSSTransition } from 'react-transition-group';
 import { isMobile } from 'react-device-detect';
+import useFetching from '../../hooks/useFetching';
+import usePagination from '../../hooks/usePagination';
+import useData from '../../hooks/useData';
 
 import ModalButton from '../Button/ModalButton';
 import PostList from '../PostList/PostList';
 import AddForm from '../AddForm/AddForm';
 import SearchForm from '../SearchForm/SearchForm';
 import Modal from '../Modal/Modal';
-
-import Form from '../Form/Form';
-import Button from '../Button/Button';
-import './app.css';
-import addKeyDownListener from '../../helpers/addKeyDownListner';
-import PostService from '../../service/PostService';
 import Error from '../Error/Error';
-import useFetching from '../../hooks/useFetching';
-import loading from '../Loading/Loading';
 import Loading from '../Loading/Loading';
 import Container from '../Container/Container';
-import { logDOM } from '@testing-library/react';
+import PagesNavBar from '../PagesNavBar/PagesNavBar';
+
+import PostService from '../../service/PostService';
+import addKeyDownListener from '../../helpers/addKeyDownListner';
+import getTotalPages from '../../helpers/getTotalPages';
+
+import './app.css';
 
 const App = () => {
-	const {
-		data,
-		setData,
-		addData,
-		deleteData,
-		sortData,
-		searchData,
-		filter,
-		setFilter,
-		modal,
-		setModal,
-	} = useData();
-
+	const data = useData();
+	const { buttonsArrayMemo, setTotalPages } = usePagination();
 	const { error, loading, fetching } = useFetching(async () => {
-		const response = await PostService.getAllPosts();
-		setData(response);
-		// .catch((error) => console.log(error));
+		const LIMIT = 2;
+		const response = await PostService.getPosts(LIMIT);
+		data.setData(response.data);
+		setTotalPages(getTotalPages(+response.headers['x-total-count'], LIMIT));
 	});
-
 	useEffect(() => {
-		addKeyDownListener('Enter', setModal);
+		addKeyDownListener('Enter', data.setModal);
 		fetching();
 	}, []);
 
-	const sortedPosts = useMemo(() => {
-		return sortData(data, filter.sortOption);
-	}, [filter.sortOption, data]);
-
-	const searchedAndSortedPosts = useMemo(() => {
-		return searchData(sortedPosts, filter.searchQuery);
-	}, [filter.searchQuery, sortedPosts]);
+	const searchedAndSortedPosts = data.searchedAndSortedPostsMemo;
+	const buttonsArray = buttonsArrayMemo;
 
 	const modalBtn =
-		!modal && isMobile ? <ModalButton onClick={setModal} /> : null;
+		!data.modal && isMobile ? (
+			<ModalButton onClick={data.setModal} />
+		) : null;
 
 	const errorMessage = error ? <Error errorMessage={error} /> : null;
 	const spinner = loading ? <Loading /> : null;
@@ -63,7 +48,7 @@ const App = () => {
 		!error && !loading ? (
 			<PostList
 				postList={searchedAndSortedPosts}
-				actionWithData={{ deleteData }}
+				actionWithData={{ deleteData: data.deleteData }}
 			/>
 		) : null;
 
@@ -78,22 +63,26 @@ const App = () => {
 	return (
 		<div className="app">
 			{modalBtn}
-			<Modal active={modal} setActive={setModal}>
+			<Modal active={data.modal} setActive={data.setModal}>
 				<AddForm
-					actionWithData={{ addData }}
-					option={filter.sortOption}
+					actionWithData={{ addData: data.addData }}
+					option={data.filter.sortOption}
 				/>
 			</Modal>
 			<SearchForm
-				actionWithData={{ sortData, searchData }}
-				setFilter={setFilter}
-				filter={filter}
+				actionWithData={{
+					sortData: data.sortData,
+					searchData: data.searchData,
+				}}
+				setFilter={data.setFilter}
+				filter={data.filter}
 				options={[
 					{ value: 'title', name: 'Title' },
 					{ value: 'body', name: 'description' },
 				]}
 			/>
 			{view}
+			<PagesNavBar buttonsArray={buttonsArray} />
 		</div>
 	);
 };
