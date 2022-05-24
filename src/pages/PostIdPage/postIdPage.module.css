@@ -1,0 +1,43 @@
+.title {
+    margin-bottom: 1rem;
+    font-size: var(--size-large);
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--sup-bg)
+}
+.postInfo {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: var(--size-normal);
+}
+.postInfo span {
+    text-transform: uppercase;
+    color: var(--sup-bg);
+}
+.postInfo div:first-child {
+    margin-bottom: 0.5rem;
+}
+.subtitle {
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: var(--size-normal);
+    color: var(--sup-bg);
+
+}
+.comments li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: var(--size-small);
+}
+.comments li > * {
+    margin-bottom: 0.5rem;
+}
+.comments li > *:last-child {
+    margin-bottom: 0;
+}
+

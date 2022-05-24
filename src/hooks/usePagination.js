@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import getTotalPages from '../helpers/getTotalPages';
 
-const usePagination = (callback) => {
+const usePagination = () => {
 	const [totalPages, setTotalPages] = useState(1);
+	const [page, setPage] = useState(1);
 
 	const buttonsArrayMemo = useMemo(() => {
 		return new Array(totalPages).fill('').map((_, i) => i + 1);
@@ -11,6 +11,8 @@ const usePagination = (callback) => {
 	return {
 		buttonsArrayMemo,
 		setTotalPages,
+		page,
+		setPage,
 	};
 };
 export default usePagination;

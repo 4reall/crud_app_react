@@ -21,7 +21,7 @@ const Button = ({ children, handleClick, disabled }) => {
 	return (
 		<button
 			className={`${styles.button} ${shakeAnimationClass}`}
-			onClick={onClick}
+			onClick={handleClick ? onClick : null}
 			disabled={isShake || disabled}
 		>
 			{children}
@@ -31,7 +31,7 @@ const Button = ({ children, handleClick, disabled }) => {
 
 Button.propTypes = {
 	disabled: PropTypes.bool,
-	handleClick: PropTypes.func.isRequired,
+	handleClick: PropTypes.func,
 };
 
 export default Button;

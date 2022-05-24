@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import Form from '../Form/Form';
 import styles from './addForm.module.css';
 
-const AddForm = ({ actionWithData }) => {
+const AddForm = ({ actionWithData, currentPostCount, setCurrentPostCount }) => {
 	const [title, setTitle] = useState('');
 	const [body, setBody] = useState('');
 
@@ -15,8 +15,9 @@ const AddForm = ({ actionWithData }) => {
 		actionWithData.addData({
 			title,
 			body,
-			id: Date.now(),
+			id: currentPostCount + 1,
 		});
+		setCurrentPostCount((prevState) => prevState + 1);
 		setTitle('');
 		setBody('');
 	};

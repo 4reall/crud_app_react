@@ -9,7 +9,7 @@ const PostList = ({ postList, actionWithData }) => {
 		<CSSTransition key={post.id} timeout={500} classNames="post">
 			<li>
 				<Post
-					number={index + 1}
+					id={post.id}
 					title={post.title}
 					body={post.body}
 					actionWithData={() => actionWithData.deleteData(post.id)}

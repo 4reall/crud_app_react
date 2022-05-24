@@ -1,15 +1,19 @@
 .button {
-    width: var(--btn-w);
-    height: var(--btn-h);
+    width: 6em;
+    height: 2em;
     position: relative;
     outline: none;
-    border: none;
-    border-radius: 0.5em;
+    border: .125em solid var(--sup-bg);
+    border-radius: 0.5rem;
     font-size: clamp(0.75rem, calc(1vw + 0.5rem), 2rem);
-    color: white;
-    background: var(--main-bg);
+    color: var(--sup-bg);
+    /*background: var(--sup-bg);*/
+    background: transparent;
     text-transform: uppercase;
     transition: all 0.3s;
+}
+.button > a {
+    color: var(--sup-bg);
 }
 .buttonShake {
     animation: shaking 1s ease-in-out;
@@ -43,30 +47,21 @@
     width: 50%;
     height: 50%;
     transform: translate(-50%, -50%);
-    background:#F719FA;
+    background: var(--sup-bg);
 }
-/*.button:before{*/
-/*    content: '';*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    left: -0.1em;*/
-/*    top: -0.1em;*/
-/*    border-width: var(--btn-border-w) var(--btn-border-w) 0 0;*/
-/*    border-color: var(--post-btn-bg) transparent;*/
-/*    border-style: solid;*/
-/*}*/
-/*.button:after{*/
-/*    content: '';*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    left: calc(var(--btn-w) - var(--btn-border-w) + 0.1em);*/
-/*    top: calc(var(--btn-h) - var(--btn-border-w) + 0.1em);*/
-/*    border-width: var(--btn-border-w) var(--btn-border-w) 0 0;*/
-/*    border-color: var(--post-btn-bg) transparent;*/
-/*    border-style: solid;*/
-/*    transform: rotate(180deg);*/
-/*}*/
 
+/*@media screen and (max-width: 35em) {*/
+/*    .post {*/
+/*        flex-direction: column;*/
+/*    }*/
+/*    .buttons button {*/
+/*        margin-bottom: 0.25rem;*/
+/*    }*/
+/*    .postContent {*/
+/*        width: 100%;*/
+/*        margin-bottom: 1rem;*/
+/*    }*/
+/*}*/
 
 @keyframes shaking {
     0% {
