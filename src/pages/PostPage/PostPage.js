@@ -13,7 +13,7 @@ import Error from '../../components/Error/Error';
 import Loading from '../../components/Loading/Loading';
 import Container from '../../components/Container/Container';
 import PageNavBar from '../../components/PagesNavBar/PageNavBar';
-import NavBar from '../../components/NavBar/NavBar';
+import withConditionalRendering from '../../components/withConditionalRendering/withConditionalRendering';
 
 import PostService from '../../service/PostService';
 import addKeyDownListener from '../../helpers/addKeyDownListner';
@@ -51,15 +51,6 @@ const PostPage = () => {
 			<ModalButton onClick={data.setModal} />
 		) : null;
 
-	const errorMessage = error ? <Error errorMessage={error} /> : null;
-	const spinner = loading ? <Loading /> : null;
-	const postList =
-		!error && !loading ? (
-			<PostList
-				postList={searchedAndSortedPosts}
-				actionWithData={{ deleteData: data.deleteData }}
-			/>
-		) : null;
 	const pageNavbar =
 		!error && !loading ? (
 			<PageNavBar
@@ -69,12 +60,34 @@ const PostPage = () => {
 			/>
 		) : null;
 
+	const PostListWithConditionalRendering = withConditionalRendering([
+		Error,
+		Loading,
+		PostList,
+	]);
+
+	const errorMessage = error ? <Error errorMessage={error} /> : null;
+	const spinner = loading ? <Loading /> : null;
+	const postList =
+		!error && !loading ? (
+			<PostList
+				postList={searchedAndSortedPosts}
+				actionWithData={{ deleteData: data.deleteData }}
+			/>
+		) : null;
+
 	const view = (
 		<>
 			<Container>
 				{errorMessage}
 				{spinner}
 				{postList}
+				{/*<PostListWithConditionalRendering*/}
+				{/*	errorMessage={error}*/}
+				{/*	isLoading={loading}*/}
+				{/*	postList={searchedAndSortedPosts}*/}
+				{/*	actionWithData={{ deleteData: data.deleteData }}*/}
+				{/*/>*/}
 			</Container>
 			{pageNavbar}
 		</>

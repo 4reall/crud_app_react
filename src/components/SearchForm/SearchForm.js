@@ -7,7 +7,7 @@ import Input from '../Input/Input';
 
 import styles from './searchForm.module.css';
 
-const SearchForm = ({ actionWithData, filter, setFilter, options }) => {
+const SearchForm = ({ filter, setFilter, options }) => {
 	return (
 		<Form title={'Search'}>
 			<Input
@@ -17,7 +17,6 @@ const SearchForm = ({ actionWithData, filter, setFilter, options }) => {
 					setFilter({ ...filter, searchQuery: searchQuery })
 				}
 				value={filter.searchQuery}
-				actionWithData={actionWithData.searchData}
 			/>
 			<Select
 				onChange={(selectedSort) =>

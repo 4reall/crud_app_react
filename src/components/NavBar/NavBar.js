@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import NavItem from './NavItem';
+
 import { paths } from '../../pages/paths';
 
 import styles from './navBar.module.css';
@@ -40,7 +40,7 @@ const NavBar = () => {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to={paths.commentPage} className={isActive}>
+					<NavLink to={paths.profilePage} className={isActive}>
 						{navItem('comments', commentThumbnail)}
 					</NavLink>
 				</li>

@@ -5,7 +5,6 @@ import styles from './button.module.css';
 
 const Button = ({ children, handleClick, disabled }) => {
 	const [isShake, setIsShake] = useState(false);
-
 	const onClick = (e) => {
 		e.preventDefault();
 

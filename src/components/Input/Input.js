@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import styles from './input.module.css';
 
-const Input = ({ onChange, actionWithData, ...props }) => {
+const Input = ({ onChange, value, ...props }) => {
 	return (
 		<input
 			{...props}
@@ -14,7 +14,9 @@ const Input = ({ onChange, actionWithData, ...props }) => {
 
 Input.propTypes = {
 	onChange: PropTypes.func.isRequired,
-	actionWithData: PropTypes.func,
+	value: PropTypes.string.isRequired,
+	type: PropTypes.string,
+	placeholder: PropTypes.string,
 };
 
 export default Input;
