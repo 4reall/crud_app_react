@@ -3,7 +3,7 @@
 Visit gh-pages or clone repository and run npm start 
 
 ## CRUD APPLICATION
-### This app implements four basic features of most apps working with data: create, read, update, delete.
+### This app implements the four basic features of most apps working with data: create, read, update, delete.
 
 ## Stack of technologies used to create this app:
 1. HTML
