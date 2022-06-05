@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/crud_app_react/static/css/main.d4239db4.css",
-    "main.js": "/crud_app_react/static/js/main.b63a97b8.js",
+    "main.js": "/crud_app_react/static/js/main.ddf9be64.js",
     "static/media/browser-error.svg": "/crud_app_react/static/media/browser-error.e6dac060fe0b3df8d5dbe3e9fadd4c35.svg",
     "static/media/house-solid.svg": "/crud_app_react/static/media/house-solid.5728388793e3276b853f1808d543e55a.svg",
     "static/media/circle-plus-solid.svg": "/crud_app_react/static/media/circle-plus-solid.1071c7a1ec2124d3c63cdaef3cc30507.svg",
@@ -10,10 +10,10 @@
     "static/media/scroll-solid.svg": "/crud_app_react/static/media/scroll-solid.7435d248fb429533707e0350684a12ec.svg",
     "static/media/user-solid.svg": "/crud_app_react/static/media/user-solid.b5a93b75482006a021e0945870345ea5.svg",
     "main.d4239db4.css.map": "/crud_app_react/static/css/main.d4239db4.css.map",
-    "main.b63a97b8.js.map": "/crud_app_react/static/js/main.b63a97b8.js.map"
+    "main.ddf9be64.js.map": "/crud_app_react/static/js/main.ddf9be64.js.map"
   },
   "entrypoints": [
     "static/css/main.d4239db4.css",
-    "static/js/main.b63a97b8.js"
+    "static/js/main.ddf9be64.js"
   ]
 }
