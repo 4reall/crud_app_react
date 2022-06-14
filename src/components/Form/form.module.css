@@ -1,0 +1,38 @@
+.form  {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    align-items: center;
+    justify-items: end;
+    column-gap: 0.5em;
+    row-gap: 0.75em;
+}
+.form >:nth-child(1) {
+    grid-column: span 3;
+}
+.form>:nth-child(2) {
+    grid-column: span 3;
+}
+.form>:nth-child(3) {
+    grid-column: span 6;
+    margin-top: 0.25em;
+}
+.formDB {
+    display: block;
+}
+.title {
+    margin-bottom: 0.5em;
+    text-align: center;
+    font-size: var(--size-large);
+}
+.titleMb0 {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 35em) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        row-gap: .5em;
+    }
+
+}

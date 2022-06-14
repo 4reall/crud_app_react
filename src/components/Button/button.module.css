@@ -1,0 +1,93 @@
+.button {
+    display: block;
+    margin: 0 auto;
+    width: 6em;
+    height: 2em;
+    position: relative;
+    outline: none;
+    border: .125em solid var(--sup-bg);
+    border-radius: 0.5rem;
+    font-size: clamp(0.75rem, calc(1vw + 0.5rem), 2rem);
+    color: var(--sup-bg);
+    /*background: var(--sup-bg);*/
+    background: transparent;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+.button > a {
+    color: var(--sup-bg);
+}
+.buttonShake {
+    animation: shaking 1s ease-in-out;
+    transform: translateY(-0.3em);
+    transition: transform 0.3s;
+}
+.button:hover {
+    transform: translateY(-0.3em);
+}
+.modalButton {
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    bottom: 7%;
+    right: 5%;
+    z-index: 1000;
+    opacity: .7;
+}
+.modalButton img {
+    /*position: absolute;*/
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.modalButton:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--sup-bg);
+}
+
+/*@media screen and (max-width: 35em) {*/
+/*    .post {*/
+/*        flex-direction: column;*/
+/*    }*/
+/*    .buttons button {*/
+/*        margin-bottom: 0.25rem;*/
+/*    }*/
+/*    .postContent {*/
+/*        width: 100%;*/
+/*        margin-bottom: 1rem;*/
+/*    }*/
+/*}*/
+
+@keyframes shaking {
+    0% {
+        transform: translateY(-0.3em);
+    }
+    15% {
+        transform: rotate(-10deg)  translateY(-0.3em);
+    }
+    30% {
+        transform: rotate(10deg) translateY(-0.3em);
+    }
+    45% {
+        transform: rotate(-5deg)  translateY(-0.3em);
+    }
+    60% {
+        transform: rotate(5deg)  translateY(-0.3em);
+    }
+    75% {
+        transform: rotate(-2deg)  translateY(-0.3em);
+    }
+    90% {
+        transform: rotate(2deg)  translateY(-0.3em);
+    }
+    100% {
+        transform: translateY(-0.3em);
+    }
+}

@@ -1,0 +1,10 @@
+.img {
+    width: 50%;
+    display: block;
+    margin: 0 auto 2rem auto;
+}
+.message {
+    margin-bottom: 1rem;
+    font-size: var(--size-large);
+    text-align: center;
+}

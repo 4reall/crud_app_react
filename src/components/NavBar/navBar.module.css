@@ -1,0 +1,137 @@
+:root {
+    --container-w: 20rem;
+    --container-h: 5rem;
+    --list-w: 15rem;
+    --item-w: 5rem;
+}
+
+.container {
+    -webkit-tap-highlight-color: transparent;
+    width: var(--container-w);
+    height: var(--container-h);
+    margin: 0 auto 3rem auto;
+    border-radius: calc(var(--container-h) * 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--form-bg);
+
+}
+.list {
+    width: var(--list-w);
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.list li {
+    width: var(--item-w);
+}
+.link {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.text {
+    position: absolute;
+    text-align: center;
+    transform: translateY(-1.5rem);
+    transition: 0.5s;
+    font-size: var(--size-small);
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+.icon {
+    position: relative;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    line-height: var(--container-h);
+    transition: 0.5s;
+    z-index: 1;
+}
+.icon img {
+    width: calc(var(--item-w) * 0.4);
+    height: calc(var(--item-w) * 0.4);
+    vertical-align: middle;
+}
+.active {
+    color: var(--sup-bg)
+}
+.link.active .icon {
+    transform: translateY(calc(var(--container-h) / 2));
+}
+.link.active .text {
+    transform: translateY(calc(var(--container-h) / 6 * -1));
+    opacity: 1;
+}
+
+.indicator {
+    position: absolute;
+    left:0;
+    top: calc(var(--container-h) * 0.2);
+    width: var(--item-w);
+    height: var(--container-h);
+    border-radius: 50%;
+    border: 8px solid var(--main-bg);
+    background: var(--sup-bg);
+}
+.indicator:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -25px;
+    top: 12px;
+    border-bottom-right-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    box-shadow: 2px 7px 0 0 var(--main-bg);
+}
+.indicator:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: -25px;
+    top: 12px;
+    border-bottom-left-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    box-shadow: -2px 7px 0 0 var(--main-bg);
+
+}
+@media screen and (max-width: 35em) {
+    .container {
+        --container-w: 15rem;
+        --container-h: 4rem;
+        margin-bottom: 2.25rem;
+    }
+    .list {
+        --list-w: 12rem;
+    }
+    .list li {
+        --item-w: 4rem;
+    }
+    .indicator {
+        border: 6px solid var(--main-bg);
+    }
+    .indicator:before {
+        width: 20px;
+        height: 20px;
+        left: -22px;
+        top: 6px;
+    }
+    .indicator:after {
+        width: 20px;
+        height: 20px;
+        right: -22px;
+        top: 6px;
+    }
+}
