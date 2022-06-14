@@ -19,7 +19,7 @@ const MainPage = () => {
 	const publicView = (
 		<>
 			<h1 className={styles.title}>CRUD application</h1>
-			<h2>Sign in to use the app</h2>
+			<h2 className={styles.subtitle}>Sign in to use the app</h2>
 			<Button handleClick={handleClick}>Sing in</Button>
 		</>
 	);
@@ -28,7 +28,7 @@ const MainPage = () => {
 		<>
 			<h1 className={styles.title}>CRUD application</h1>
 			<p className={styles.text}>
-				This app implements four basic features of most apps working
+				This app implements the four basic features of most apps working
 				with data: create, read, update, delete.
 			</p>
 			<h2 className={styles.subtitle}>

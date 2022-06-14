@@ -60,12 +60,6 @@ const PostPage = () => {
 			/>
 		) : null;
 
-	const PostListWithConditionalRendering = withConditionalRendering([
-		Error,
-		Loading,
-		PostList,
-	]);
-
 	const errorMessage = error ? <Error errorMessage={error} /> : null;
 	const spinner = loading ? <Loading /> : null;
 	const postList =
@@ -82,12 +76,6 @@ const PostPage = () => {
 				{errorMessage}
 				{spinner}
 				{postList}
-				{/*<PostListWithConditionalRendering*/}
-				{/*	errorMessage={error}*/}
-				{/*	isLoading={loading}*/}
-				{/*	postList={searchedAndSortedPosts}*/}
-				{/*	actionWithData={{ deleteData: data.deleteData }}*/}
-				{/*/>*/}
 			</Container>
 			{pageNavbar}
 		</>

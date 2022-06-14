@@ -20,8 +20,6 @@
 .list {
     width: var(--list-w);
     position: relative;
-    /*min-width: 30%;*/
-    /*margin: 0 auto;*/
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -29,7 +27,6 @@
 }
 .list li {
     width: var(--item-w);
-    /*height: 3rem;*/
 }
 .link {
     position: relative;
@@ -38,7 +35,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*user-select: none;*/
 
 }
 .text {
@@ -46,7 +42,6 @@
     text-align: center;
     transform: translateY(-1.5rem);
     transition: 0.5s;
-    /*z-index: -1;*/
     font-size: var(--size-small);
     text-transform: uppercase;
     opacity: 0;
@@ -62,7 +57,8 @@
     z-index: 1;
 }
 .icon img {
-    width: 40%;
+    width: calc(var(--item-w) * 0.4);
+    height: calc(var(--item-w) * 0.4);
     vertical-align: middle;
 }
 .active {
@@ -85,37 +81,30 @@
     border-radius: 50%;
     border: 8px solid var(--main-bg);
     background: var(--sup-bg);
-    /*transform: translateX(calc(var(--item-w)));*/
 }
 .indicator:before {
     content: '';
     display: block;
     position: absolute;
-    /*left: calc(var(--container-h) * 0.27 * -1);*/
-    /*top: calc(var(--container-h) * 0.18);*/
-    left: -21px;
-    top: 14px;
+    left: -25px;
+    top: 12px;
     border-bottom-right-radius: 20px;
-    width: 1rem;
-    height: 1rem;
+    width: 20px;
+    height: 20px;
     background: transparent;
-    box-shadow: 1px 6px 0 0 var(--main-bg);
-    /*background: yellow;*/
-    /*box-shadow: 1px 6px 0 0 red;*/
+    box-shadow: 2px 7px 0 0 var(--main-bg);
 }
 .indicator:after {
     content: '';
     display: block;
     position: absolute;
-    /*right: calc(var(--container-h) * 0.26 * -1);*/
-    /*top: calc(var(--container-h) * 0.18);*/
-    right: -21px;
-    top: 14px;
+    right: -25px;
+    top: 12px;
     border-bottom-left-radius: 20px;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     background: transparent;
-    box-shadow: -1px 6px 0 0 var(--main-bg);
+    box-shadow: -2px 7px 0 0 var(--main-bg);
 
 }
 @media screen and (max-width: 35em) {
@@ -130,30 +119,19 @@
     .list li {
         --item-w: 4rem;
     }
-    .icon img {
-        width: 40%;
-    }
     .indicator {
         border: 6px solid var(--main-bg);
     }
     .indicator:before {
-        width: 16px;
-        height: 16px;
-        left: -18.5px;
-        top: 8.5px;
-        /*background: transparent;*/
-        /*box-shadow: 2px 3px 0 0 red;*/
+        width: 20px;
+        height: 20px;
+        left: -22px;
+        top: 6px;
     }
     .indicator:after {
-        width: 16px;
-        height: 16px;
-        right: -18.5px;
-        top: 8.5px;
-        /*box-shadow: -1px 9px 0 0 var(--main-bg);*/
+        width: 20px;
+        height: 20px;
+        right: -22px;
+        top: 6px;
     }
-
-
-    /*.button {*/
-    /*    margin-top: 0.5em;*/
-    /*}*/
 }

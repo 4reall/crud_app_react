@@ -8,7 +8,7 @@ import { paths } from '../../pages/paths';
 import styles from './navBar.module.css';
 import homeThumbnail from '../../assets/icons/house-solid.svg';
 import postThumbnail from '../../assets/icons/scroll-solid.svg';
-import commentThumbnail from '../../assets/icons/comments-solid.svg';
+import commentThumbnail from '../../assets/icons/user-solid.svg';
 
 const NavBar = () => {
 	const isActive = ({ isActive }) => {
@@ -41,7 +41,7 @@ const NavBar = () => {
 				</li>
 				<li>
 					<NavLink to={paths.profilePage} className={isActive}>
-						{navItem('comments', commentThumbnail)}
+						{navItem('profile', commentThumbnail)}
 					</NavLink>
 				</li>
 			</ul>
